@@ -3,21 +3,13 @@ import { useState } from "react"
 
 function Form(props) {
   const [isTheCardNumberValid, setIsTheCardNumberValid] = useState(true)
+
   const [isTheCardHolderValid, setIsTheCardHolderValid] = useState(true)
+
   const [isExpirationDateValid, setIsExpirationDateValid] = useState(true)
+
   const [isTheCvvValid, setIsCvvValid] = useState(true)
 
-  const validatingTheForm = () => {
-    return (
-      props.cardHolderInput != undefined &&
-      props.month <= 12 &&
-      props.month >= 1 &&
-      props.year <= ThisYear + 9 &&
-      props.year >= ThisYear &&
-      props.cvvInput?.length === 3 &&
-      props.cardNumberInput.length === 19
-    )
-  }
   const validatingTheCardNumber = () => {
     /*luhn's algorithm to check whether the credit card number is valid or not*/
     const luhnCheck = (val) => {
@@ -55,14 +47,19 @@ function Form(props) {
       !props.cardNumberInput.match(/^[0-9]*$/) ||
       !luhnCheck(props.cardNumberInput)
     ) {
-      setIsTheCardNumberValid(false)
+      return false
     }
   }
   const validatingTheCardHolder = () => {
     return props.cardHolderInput != ""
   }
   const validatingTheExpirationDate = () => {
-    /*comparing the current date with the expiration date that the user was inputed, the expiration date shouldn't be in the past */
+    if (
+      !props.expirationDate.match(/^(0[1-9]|1[0-2])\/(20\d{2}|[3-9]\d{3})$/)
+    ) {
+      return false
+    }
+    /*comparing the current date with the expiration date that the user was inputed, the expiration date shouldn't be in the past*/
     const date = new Date()
     const [month, year] = props.expirationDate.split("/")
     const formattedExpirationDate = new Date(`${year}-${month}`)
@@ -71,11 +68,11 @@ function Form(props) {
     } else {
       return false
     }
-    /*add a try and catch block*/
-    /*add a custom error and check whether the input is following this format: (mm-yyyy). regex for it : ^(0[1-9]|1[0-2])\/(20\d{2}|[3-9]\d{3})$ */
   }
   const validatingTheCvv = () => {
-    return props.cvvInput.length === 3
+    if (!props.cvvInput.match(/^\d{3,4}$/)) {
+      return false
+    }
   }
 
   return (
@@ -195,7 +192,7 @@ function Form(props) {
           </div>
         </div>
 
-        <input type="submit" value="submit" disabled={!validatingTheForm()} />
+        <input type="submit" value="Submit" />
       </form>
     </>
   )

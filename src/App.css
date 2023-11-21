@@ -22,10 +22,6 @@ input[type="submit"] {
   margin-top: 1.25rem;
 }
 
-input[type="submit"]:not(:disabled):hover {
-  background: #3d9cff;
-}
-
 .form {
   box-shadow: 1.875rem 3.75rem 7.5rem 0 rgba(90, 116, 148, 0.4);
   display: flex;
@@ -287,11 +283,6 @@ html {
 
 .emptySpace {
   width: 4px;
-}
-
-input[disabled] {
-  background-color: #9ab8e6;
-  box-shadow: none;
 }
 
 .error {
