@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 
 function Card(props) {
   const defaultDimenions = {
-    height: 240,
-    width: 420,
-    positionTop: 13,
-    positionLeft: 503,
+    height: 270,
+    width: 450,
+    positionTop: 0,
+    positionLeft: 0,
     opacity: 0,
   }
 
@@ -29,8 +29,8 @@ function Card(props) {
         setDimensions({
           height: element.offsetHeight,
           width: element.offsetWidth,
-          positionTop: element.getBoundingClientRect().top + window.scrollY,
-          positionLeft: element.getBoundingClientRect().left,
+          positionTop: element.offsetTop,
+          positionLeft: element.offsetLeft,
           opacity: 1,
         })
       }, 300)
@@ -55,23 +55,6 @@ function Card(props) {
 
   return (
     <>
-      {!props.cvvIsFocused && (
-        <div
-          style={{
-            zIndex: "1",
-            height: `${dimensions.height - 2}px`,
-            width: `${dimensions.width - 2}px`,
-            transition:
-              "width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease, opacity 0.5s ease",
-            position: "absolute",
-            top: `${dimensions.positionTop}px`,
-            left: `${dimensions.positionLeft}px`,
-            borderRadius: "5px",
-            border: "2px solid rgba(255, 255, 255, 0.65)",
-            opacity: `${dimensions.opacity}`,
-          }}
-        ></div>
-      )}
       <div className="card">
         <div
           style={
@@ -82,6 +65,22 @@ function Card(props) {
           className="card-inner"
         >
           <div className="card_front">
+            <div
+              style={{
+                zIndex: "1",
+                height: `${dimensions.height - 2}px`,
+                width: `${dimensions.width - 2}px`,
+                transition:
+                  "width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease, opacity 0.5s ease",
+                position: "absolute",
+                top: `${dimensions.positionTop}px`,
+                left: `${dimensions.positionLeft}px`,
+                borderRadius: "5px",
+                border: "2px solid rgba(255, 255, 255, 0.65)",
+                opacity: `${dimensions.opacity}`,
+              }}
+            ></div>
+
             <div className="card_frontTopBox">
               <img src={chipIcon} className="chipIcon" />
               <img src={visaIcon} className="visaIcon" />
