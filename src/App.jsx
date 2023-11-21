@@ -10,7 +10,7 @@ function App() {
   const [cvvIsFocused, setCvvIsFocused] = useState(false)
 
   const [expirationDate, setExpirationDate] = useState()
-  const [cardHolderInput, setCardHolderInput] = useState(undefined)
+  const [cardHolderInput, setCardHolderInput] = useState()
   const [cardNumberInput, setCardNumberInput] = useState()
   const [cvvInput, setCvvInput] = useState()
 

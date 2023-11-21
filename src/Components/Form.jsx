@@ -59,7 +59,7 @@ function Form(props) {
     }
   }
   const validatingTheCardHolder = () => {
-    return props.cardHolderInput != undefined
+    return props.cardHolderInput != ""
   }
   const validatingTheExpirationDate = () => {
     /*comparing the current date with the expiration date that the user was inputed, the expiration date shouldn't be in the past */
@@ -71,6 +71,8 @@ function Form(props) {
     } else {
       return false
     }
+    /*add a try and catch block*/
+    /*add a custom error and check whether the input is following this format: (mm-yyyy). regex for it : ^(0[1-9]|1[0-2])\/(20\d{2}|[3-9]\d{3})$ */
   }
   const validatingTheCvv = () => {
     return props.cvvInput.length === 3
@@ -88,7 +90,6 @@ function Form(props) {
             type="text"
             inputMode="numeric"
             autoComplete="cc-number"
-            pattern="^[0-9]*$"
             maxLength="16"
             value={props.cardNumberInput}
             onChange={(e) => props.setCardNumberInput(e.target.value)}
@@ -99,7 +100,6 @@ function Form(props) {
               props.setCardNumberIsFocused(false),
                 setIsTheCardNumberValid(validatingTheCardNumber())
             }}
-            required
           />
           {!isTheCardNumberValid ? (
             <div className="cardNumberError flexBox">
@@ -128,7 +128,6 @@ function Form(props) {
               props.setCardHolderIsFocused(false),
                 setIsTheCardHolderValid(validatingTheCardHolder())
             }}
-            required
           />
           {!isTheCardHolderValid ? (
             <div className="cardHolderError flexBox">
@@ -150,7 +149,6 @@ function Form(props) {
               inputMode="numeric"
               autoComplete="cc-exp"
               maxLength="7"
-              pattern="^[0-9]*$"
               value={props.expirationDate}
               onChange={(e) => props.setExpirationDate(e.target.value)}
               onFocus={() => {
@@ -160,7 +158,6 @@ function Form(props) {
                 props.setExpirationDateIsFocused(false),
                   setIsExpirationDateValid(validatingTheExpirationDate())
               }}
-              required
             />
             {!isExpirationDateValid ? (
               <div className="expirationDate flexBox">
@@ -180,7 +177,6 @@ function Form(props) {
               autoComplete="cc-csc"
               minLength="3"
               maxLength="4"
-              pattern="^[0-9]*$"
               value={props.cvvInput}
               onChange={(e) => props.setCvvInput(e.target.value)}
               onFocus={() => {
@@ -189,7 +185,6 @@ function Form(props) {
               onBlur={() => {
                 props.setCvvIsFocused(false), setIsCvvValid(validatingTheCvv())
               }}
-              required
             />
             {!isTheCvvValid ? (
               <div className="cardCvvError flexBox">
