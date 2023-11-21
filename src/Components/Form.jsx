@@ -79,9 +79,27 @@ function Form(props) {
     }
   }
 
+  const handleFormSubmission = (e) => {
+    /*checking whether the fields are empty */
+    setIsTheCardNumberValid(props.cardNumberInput)
+    setIsTheCardHolderValid(props.cardHolderInput)
+    setIsExpirationDateValid(props.expirationDate)
+    setIsCvvValid(props.cvvInput)
+    e.preventDefault()
+    if (
+      isTheCardNumberValid &&
+      isTheCardHolderValid &&
+      isExpirationDateValid &&
+      isTheCvvValid
+    ) {
+      /*
+      sending form data to the server ...
+      */
+    }
+  }
   return (
     <>
-      <form className="form">
+      <form className="form" onSubmit={handleFormSubmission}>
         <div className="inputGroup">
           <label htmlFor="card-number">Card Number</label>
           <input
@@ -99,8 +117,10 @@ function Form(props) {
               props.setCardNumberIsFocused(true)
             }}
             onBlur={() => {
-              props.setCardNumberIsFocused(false),
+              props.setCardNumberIsFocused(false)
+              if (props.cardNumberInput) {
                 setIsTheCardNumberValid(validatingTheCardNumber())
+              }
             }}
           />
           {!isTheCardNumberValid ? (
@@ -132,8 +152,10 @@ function Form(props) {
               props.setCardHolderIsFocused(true)
             }}
             onBlur={() => {
-              props.setCardHolderIsFocused(false),
+              props.setCardHolderIsFocused(false)
+              if (props.cardHolderInput) {
                 setIsTheCardHolderValid(validatingTheCardHolder())
+              }
             }}
           />
           {!isTheCardHolderValid ? (
@@ -167,8 +189,10 @@ function Form(props) {
                 props.setExpirationDateIsFocused(true)
               }}
               onBlur={() => {
-                props.setExpirationDateIsFocused(false),
+                props.setExpirationDateIsFocused(false)
+                if (props.expirationDate) {
                   setIsExpirationDateValid(validatingTheExpirationDate())
+                }
               }}
             />
             {!isExpirationDateValid ? (
@@ -200,7 +224,10 @@ function Form(props) {
                 props.setCvvIsFocused(true)
               }}
               onBlur={() => {
-                props.setCvvIsFocused(false), setIsCvvValid(validatingTheCvv())
+                props.setCvvIsFocused(false)
+                if (props.cvvInput) {
+                  setIsCvvValid(validatingTheCvv())
+                }
               }}
             />
             {!isTheCvvValid ? (

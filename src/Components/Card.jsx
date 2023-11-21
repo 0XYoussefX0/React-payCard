@@ -16,9 +16,9 @@ function Card(props) {
     !props.expirationDateIsFocused &&
     !props.cardNumberIsFocused
 
-  const cardNumbers = useRef()
-  const childOfcard_frontBottomBox = useRef()
-  const secondChildOfcard_frontBottomBox = useRef()
+  const creditCardNumberContainer = useRef()
+  const cardHolderContainer = useRef()
+  const ExpirationDateContainer = useRef()
 
   const [dimensions, setDimensions] = useState(defaultDimenions)
 
@@ -36,11 +36,11 @@ function Card(props) {
       }, 300)
     }
     if (props.cardHolderIsFocused) {
-      timer = setDimensionsWithTimeout(childOfcard_frontBottomBox.current)
+      timer = setDimensionsWithTimeout(cardHolderContainer.current)
     } else if (props.expirationDateIsFocused) {
-      timer = setDimensionsWithTimeout(secondChildOfcard_frontBottomBox.current)
+      timer = setDimensionsWithTimeout(ExpirationDateContainer.current)
     } else if (props.cardNumberIsFocused) {
-      timer = setDimensionsWithTimeout(cardNumbers.current)
+      timer = setDimensionsWithTimeout(creditCardNumberContainer.current)
     } else if (shouldHideFocusBox) {
       timer = setTimeout(() => {
         setDimensions(defaultDimenions)
@@ -85,7 +85,10 @@ function Card(props) {
               <img src={chipIcon} className="chipIcon" />
               <img src={visaIcon} className="visaIcon" />
             </div>
-            <div ref={cardNumbers} className="card_frontCardNumber shadow">
+            <div
+              ref={creditCardNumberContainer}
+              className="card_frontCardNumber shadow"
+            >
               {props.cardNumberInput ? (
                 <>
                   {Array.from(props.cardNumberInput).map((num, index) => {
@@ -136,7 +139,7 @@ function Card(props) {
               )}
             </div>
             <div className="card_frontBottomBox">
-              <div ref={childOfcard_frontBottomBox}>
+              <div ref={cardHolderContainer}>
                 <div className="cardHolder shadow">Card Holder</div>
                 <div className="input-text shadow">
                   {props.cardHolderInput ? (
@@ -158,7 +161,7 @@ function Card(props) {
                   )}
                 </div>
               </div>
-              <div ref={secondChildOfcard_frontBottomBox}>
+              <div ref={ExpirationDateContainer}>
                 <div className="shadow expirationDate">Expires</div>
                 <div className="input-text shadow">
                   {props.expirationDate ? (
