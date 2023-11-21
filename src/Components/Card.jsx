@@ -12,9 +12,9 @@ function Card(props) {
   }
 
   const shouldHideFocusBox =
-    !props.CardHolderIsFocused &&
-    !props.ExpirationDateIsFocused &&
-    !props.CardNumberIsFocused
+    !props.cardHolderIsFocused &&
+    !props.expirationDateIsFocused &&
+    !props.cardNumberIsFocused
 
   const cardNumbers = useRef()
   const childOfcard_frontBottomBox = useRef()
@@ -35,11 +35,11 @@ function Card(props) {
         })
       }, 300)
     }
-    if (props.CardHolderIsFocused) {
+    if (props.cardHolderIsFocused) {
       timer = setDimensionsWithTimeout(childOfcard_frontBottomBox.current)
-    } else if (props.ExpirationDateIsFocused) {
+    } else if (props.expirationDateIsFocused) {
       timer = setDimensionsWithTimeout(secondChildOfcard_frontBottomBox.current)
-    } else if (props.CardNumberIsFocused) {
+    } else if (props.cardNumberIsFocused) {
       timer = setDimensionsWithTimeout(cardNumbers.current)
     } else if (shouldHideFocusBox) {
       timer = setTimeout(() => {
@@ -48,14 +48,14 @@ function Card(props) {
     }
     return () => clearTimeout(timer)
   }, [
-    props.CardHolderIsFocused,
-    props.ExpirationDateIsFocused,
-    props.CardNumberIsFocused,
+    props.cardHolderIsFocused,
+    props.expirationDateIsFocused,
+    props.cardNumberIsFocused,
   ])
 
   return (
     <>
-      {!props.cardIsFlipped && (
+      {!props.cvvIsFocused && (
         <div
           style={{
             zIndex: "1",
@@ -75,7 +75,7 @@ function Card(props) {
       <div className="card">
         <div
           style={
-            props.cardIsFlipped
+            props.cvvIsFocused
               ? { transform: "rotateY(180deg)" }
               : { transform: "rotateY(0deg)" }
           }
@@ -160,22 +160,20 @@ function Card(props) {
                 </div>
               </div>
               <div ref={secondChildOfcard_frontBottomBox}>
-                <div className="shadow cardHolder">Expires</div>
+                <div className="shadow expirationDate">Expires</div>
                 <div className="input-text shadow">
-                  {props.month ? (
-                    props.month < 10 ? (
-                      <div className="animation">0{props.month}</div>
-                    ) : (
-                      <div className="animation">{props.month}</div>
-                    )
+                  {props.expirationDate ? (
+                    <>
+                      {Array.from(props.expirationDate).map((num, index) => {
+                        return (
+                          <div className="animation" key={index}>
+                            {num}
+                          </div>
+                        )
+                      })}
+                    </>
                   ) : (
-                    "MM"
-                  )}
-                  /
-                  {props.year ? (
-                    <div className="animation">{props.year - 2000}</div>
-                  ) : (
-                    "YY"
+                    "MM/YYYY"
                   )}
                 </div>
               </div>

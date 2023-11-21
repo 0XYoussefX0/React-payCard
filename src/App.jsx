@@ -4,14 +4,12 @@ import Card from "./Components/Card"
 import { useState } from "react"
 
 function App() {
-  const [cardIsFlipped, setCardIsFlipped] = useState(false)
+  const [cardNumberIsFocused, setCardNumberIsFocused] = useState(false)
+  const [cardHolderIsFocused, setCardHolderIsFocused] = useState(false)
+  const [expirationDateIsFocused, setExpirationDateIsFocused] = useState(false)
+  const [cvvIsFocused, setCvvIsFocused] = useState(false)
 
-  const [CardNumberIsFocused, setCardNumberIsFocused] = useState(false)
-  const [CardHolderIsFocused, setCardHolderIsFocused] = useState(false)
-  const [ExpirationDateIsFocused, setExpirationDateIsFocused] = useState(false)
-
-  const [year, setYear] = useState()
-  const [month, setMonth] = useState()
+  const [expirationDate, setExpirationDate] = useState()
   const [cardHolderInput, setCardHolderInput] = useState(undefined)
   const [cardNumberInput, setCardNumberInput] = useState()
   const [cvvInput, setCvvInput] = useState()
@@ -23,12 +21,11 @@ function App() {
           cvvInput={cvvInput}
           cardNumberInput={cardNumberInput}
           cardHolderInput={cardHolderInput}
-          month={month}
-          year={year}
-          cardIsFlipped={cardIsFlipped}
-          CardNumberIsFocused={CardNumberIsFocused}
-          CardHolderIsFocused={CardHolderIsFocused}
-          ExpirationDateIsFocused={ExpirationDateIsFocused}
+          expirationDate={expirationDate}
+          cardNumberIsFocused={cardNumberIsFocused}
+          cardHolderIsFocused={cardHolderIsFocused}
+          expirationDateIsFocused={expirationDateIsFocused}
+          cvvIsFocused={cvvIsFocused}
         />
         <Form
           cvvInput={cvvInput}
@@ -37,11 +34,9 @@ function App() {
           setCardNumberInput={setCardNumberInput}
           cardHolderInput={cardHolderInput}
           setCardHolderInput={setCardHolderInput}
-          month={month}
-          setMonth={setMonth}
-          year={year}
-          setYear={setYear}
-          setCardIsFlipped={setCardIsFlipped}
+          expirationDate={expirationDate}
+          setExpirationDate={setExpirationDate}
+          setCvvIsFocused={setCvvIsFocused}
           setCardNumberIsFocused={setCardNumberIsFocused}
           setCardHolderIsFocused={setCardHolderIsFocused}
           setExpirationDateIsFocused={setExpirationDateIsFocused}
