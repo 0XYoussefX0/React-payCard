@@ -34,12 +34,18 @@ input[type="submit"] {
   max-width: 489px;
   width: 100%;
   border-radius: 0.375rem;
-  padding: 9.375rem 3.125rem 3.125rem 3.125rem;
+  padding: 9.375rem 50px 50px 33px;
 }
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  border-left: 5px solid transparent;
+  padding-left: 12px;
+}
+.redLeftBorder {
+  border-left-color: rgb(244, 67, 54);
+  padding-left: 12px;
 }
 input:not([type="submit"]) {
   border-radius: 5px;
@@ -67,9 +73,16 @@ input:focus:not([type="submit"]) {
   border-color: #3d9cff;
   box-shadow: 0rem 0.625rem 1.25rem -0.8125rem rgba(32, 56, 117, 0.35);
 }
-
+.card-number-hint,
+.card-holder-hint,
+.expiration-date-hint,
+.cvv-hint {
+  font-family: "Source Code Pro", monospace;
+  font-size: 13px;
+  color: #27598b;
+}
 label {
-  font-size: 0.875rem;
+  font-size: 17px;
   font-weight: 500;
   color: #1a3b5d;
 }

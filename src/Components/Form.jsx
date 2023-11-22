@@ -1,4 +1,3 @@
-import alertIcon from "../assets/alertIcon.png"
 import { useState } from "react"
 
 function Form(props) {
@@ -100,8 +99,21 @@ function Form(props) {
   return (
     <>
       <form className="form" onSubmit={handleFormSubmission}>
-        <div className="inputGroup">
+        <div
+          className={`inputGroup ${
+            !isTheCardNumberValid ? "redLeftBorder" : ""
+          } `}
+        >
           <label htmlFor="card-number">Card Number</label>
+          <div className="card-number-hint" id="card-number-hint">
+            Enter the 16-digit number without spaces or dashes, like
+            'XXXXXXXXXXXXXXXX'
+          </div>
+          {!isTheCardNumberValid && (
+            <div className="error" role="alert" id="card-number-error">
+              Please enter a valid 16-digit credit card number
+            </div>
+          )}
           <input
             className={!isTheCardNumberValid ? "redBorder" : null}
             id="card-number"
@@ -110,7 +122,7 @@ function Form(props) {
             inputMode="numeric"
             autoComplete="cc-number"
             maxLength="16"
-            aria-describedby="card-number-error"
+            aria-describedby="card-number-hint card-number-error"
             value={props.cardNumberInput}
             onChange={(e) => props.setCardNumberInput(e.target.value)}
             onFocus={() => {
@@ -123,22 +135,22 @@ function Form(props) {
               }
             }}
           />
-          {!isTheCardNumberValid ? (
-            <div
-              className="cardNumberError flexBox"
-              role="alert"
-              id="card-number-error"
-            >
-              <img className="alertIcon" src={alertIcon} />
-              <div className="error">
-                Please enter a valid 16-digit credit card number.
-              </div>
-            </div>
-          ) : null}
         </div>
 
-        <div className="inputGroup">
+        <div
+          className={`inputGroup ${
+            !isTheCardHolderValid ? "redLeftBorder" : ""
+          } `}
+        >
           <label htmlFor="card-holder">Card Holder</label>
+          <div className="card-holder-hint" id="card-holder-hint">
+            Enter the full name exactly as it appears on the card.
+          </div>
+          {!isTheCardHolderValid && (
+            <div className="error" role="alert" id="card-holder-error">
+              Please enter the name of the card holder.
+            </div>
+          )}
           <input
             className={!isTheCardHolderValid ? "redBorder" : null}
             id="card-holder"
@@ -146,7 +158,7 @@ function Form(props) {
             autoComplete="cc-name"
             type="text"
             spellcheck="false"
-            aria-describedby="card-holder-error"
+            aria-describedby="card-holder-hint card-holder-error"
             value={props.cardHolderInput}
             onChange={(e) => props.setCardHolderInput(e.target.value)}
             onFocus={() => {
@@ -159,22 +171,22 @@ function Form(props) {
               }
             }}
           />
-          {!isTheCardHolderValid ? (
-            <div
-              className="cardHolderError flexBox"
-              role="alert"
-              id="card-holder-error"
-            >
-              <img className="alertIcon" src={alertIcon} />
-              <div className="error">
-                Please enter the name of the card holder.
-              </div>
-            </div>
-          ) : null}
         </div>
 
-        <div className="inputGroup">
+        <div
+          className={`inputGroup ${
+            !isExpirationDateValid ? "redLeftBorder" : ""
+          } `}
+        >
           <label htmlFor="expiration-date">Expiration Date</label>
+          <div className="expiration-date-hint" id="expiration-date-hint">
+            Enter the expiration date in the format MM/YYYY.
+          </div>
+          {!isExpirationDateValid && (
+            <div className="error" role="alert" id="expiration-date-error">
+              Please type an expiration date.
+            </div>
+          )}
           <input
             className={!isExpirationDateValid ? "redBorder" : null}
             id="expiration-date"
@@ -183,7 +195,7 @@ function Form(props) {
             inputMode="numeric"
             autoComplete="cc-exp"
             maxLength="7"
-            aria-describedby="expiration-date-error"
+            aria-describedby="expiration-date-hint expiration-date-error"
             value={props.expirationDate}
             onChange={(e) => props.setExpirationDate(e.target.value)}
             onFocus={() => {
@@ -196,19 +208,18 @@ function Form(props) {
               }
             }}
           />
-          {!isExpirationDateValid ? (
-            <div
-              className="expirationDate flexBox"
-              role="alert"
-              id="expiration-date-error"
-            >
-              <img className="alertIcon" src={alertIcon} />
-              <div className="error">Please type an expiration date.</div>
-            </div>
-          ) : null}
         </div>
-        <div className="inputGroup">
+        <div className={`inputGroup ${!isTheCvvValid ? "redLeftBorder" : ""} `}>
           <label htmlFor="cvv">CVV</label>
+          <div className="cvv-hint" id="cvv-hint">
+            Enter the three or four-digit security code found on the back of
+            your card.
+          </div>
+          {!isTheCvvValid && (
+            <div className="error" role="alert" id="cvv-error">
+              Please enter a 3-digit CVV number.
+            </div>
+          )}
           <input
             className={!isTheCvvValid ? "redBorder" : null}
             id="cvv"
@@ -218,7 +229,7 @@ function Form(props) {
             autoComplete="cc-csc"
             minLength="3"
             maxLength="4"
-            aria-describedby="cvv-error"
+            aria-describedby="cvv-hint cvv-error"
             value={props.cvvInput}
             onChange={(e) => props.setCvvInput(e.target.value)}
             onFocus={() => {
@@ -231,16 +242,6 @@ function Form(props) {
               }
             }}
           />
-          {!isTheCvvValid ? (
-            <div
-              className="cardCvvError flexBox"
-              role="alert"
-              aria-describedby="cvv-error"
-            >
-              <img className="alertIcon" src={alertIcon} />
-              <div className="error">Please enter a 3-digit CVV number.</div>
-            </div>
-          ) : null}
         </div>
 
         <input type="submit" value="Submit" />
