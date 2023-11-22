@@ -172,76 +172,75 @@ function Form(props) {
             </div>
           ) : null}
         </div>
-        <div className="cvvAndExpirationDateWrapper">
-          <div className="inputGroup">
-            <label htmlFor="expiration-date">Expiration Date</label>
-            <input
-              className={!isExpirationDateValid ? "redBorder" : null}
-              id="expiration-date"
-              name="expiration-date"
-              type="text"
-              inputMode="numeric"
-              autoComplete="cc-exp"
-              maxLength="7"
-              aria-describedby="expiration-date-error"
-              value={props.expirationDate}
-              onChange={(e) => props.setExpirationDate(e.target.value)}
-              onFocus={() => {
-                props.setExpirationDateIsFocused(true)
-              }}
-              onBlur={() => {
-                props.setExpirationDateIsFocused(false)
-                if (props.expirationDate) {
-                  setIsExpirationDateValid(validatingTheExpirationDate())
-                }
-              }}
-            />
-            {!isExpirationDateValid ? (
-              <div
-                className="expirationDate flexBox"
-                role="alert"
-                id="expiration-date-error"
-              >
-                <img className="alertIcon" src={alertIcon} />
-                <div className="error">Please type an expiration date.</div>
-              </div>
-            ) : null}
-          </div>
-          <div className="inputGroup">
-            <label htmlFor="cvv">CVV</label>
-            <input
-              className={!isTheCvvValid ? "redBorder" : null}
-              id="cvv"
-              name="cvv"
-              type="text"
-              inputMode="numeric"
-              autoComplete="cc-csc"
-              minLength="3"
-              maxLength="4"
+
+        <div className="inputGroup">
+          <label htmlFor="expiration-date">Expiration Date</label>
+          <input
+            className={!isExpirationDateValid ? "redBorder" : null}
+            id="expiration-date"
+            name="expiration-date"
+            type="text"
+            inputMode="numeric"
+            autoComplete="cc-exp"
+            maxLength="7"
+            aria-describedby="expiration-date-error"
+            value={props.expirationDate}
+            onChange={(e) => props.setExpirationDate(e.target.value)}
+            onFocus={() => {
+              props.setExpirationDateIsFocused(true)
+            }}
+            onBlur={() => {
+              props.setExpirationDateIsFocused(false)
+              if (props.expirationDate) {
+                setIsExpirationDateValid(validatingTheExpirationDate())
+              }
+            }}
+          />
+          {!isExpirationDateValid ? (
+            <div
+              className="expirationDate flexBox"
+              role="alert"
+              id="expiration-date-error"
+            >
+              <img className="alertIcon" src={alertIcon} />
+              <div className="error">Please type an expiration date.</div>
+            </div>
+          ) : null}
+        </div>
+        <div className="inputGroup">
+          <label htmlFor="cvv">CVV</label>
+          <input
+            className={!isTheCvvValid ? "redBorder" : null}
+            id="cvv"
+            name="cvv"
+            type="text"
+            inputMode="numeric"
+            autoComplete="cc-csc"
+            minLength="3"
+            maxLength="4"
+            aria-describedby="cvv-error"
+            value={props.cvvInput}
+            onChange={(e) => props.setCvvInput(e.target.value)}
+            onFocus={() => {
+              props.setCvvIsFocused(true)
+            }}
+            onBlur={() => {
+              props.setCvvIsFocused(false)
+              if (props.cvvInput) {
+                setIsCvvValid(validatingTheCvv())
+              }
+            }}
+          />
+          {!isTheCvvValid ? (
+            <div
+              className="cardCvvError flexBox"
+              role="alert"
               aria-describedby="cvv-error"
-              value={props.cvvInput}
-              onChange={(e) => props.setCvvInput(e.target.value)}
-              onFocus={() => {
-                props.setCvvIsFocused(true)
-              }}
-              onBlur={() => {
-                props.setCvvIsFocused(false)
-                if (props.cvvInput) {
-                  setIsCvvValid(validatingTheCvv())
-                }
-              }}
-            />
-            {!isTheCvvValid ? (
-              <div
-                className="cardCvvError flexBox"
-                role="alert"
-                aria-describedby="cvv-error"
-              >
-                <img className="alertIcon" src={alertIcon} />
-                <div className="error">Please enter a 3-digit CVV number.</div>
-              </div>
-            ) : null}
-          </div>
+            >
+              <img className="alertIcon" src={alertIcon} />
+              <div className="error">Please enter a 3-digit CVV number.</div>
+            </div>
+          ) : null}
         </div>
 
         <input type="submit" value="Submit" />

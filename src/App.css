@@ -41,10 +41,6 @@ input[type="submit"] {
   flex-direction: column;
   gap: 8px;
 }
-.cvvAndExpirationDateWrapper {
-  display: flex;
-  gap: 30px;
-}
 input:not([type="submit"]) {
   border-radius: 5px;
   box-shadow: none;
@@ -57,7 +53,10 @@ input:not([type="submit"]) {
   transition: all 0.3s ease-in-out;
 }
 input[id="cvv"] {
-  width: calc(100% - 31px);
+  width: 37px;
+}
+input[id="expiration-date"] {
+  width: 100px;
 }
 input:hover:not([type="submit"]) {
   border-color: #3d9cff;
