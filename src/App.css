@@ -59,13 +59,11 @@ input:not([type="submit"]) {
 input[id="cvv"] {
   width: calc(100% - 31px);
 }
-input:hover:not([type="submit"]),
-select:hover {
+input:hover:not([type="submit"]) {
   border-color: #3d9cff;
 }
 
-input:focus:not([type="submit"]),
-select:focus {
+input:focus:not([type="submit"]) {
   outline: none;
   border-color: #3d9cff;
   box-shadow: 0rem 0.625rem 1.25rem -0.8125rem rgba(32, 56, 117, 0.35);
@@ -75,19 +73,6 @@ label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #1a3b5d;
-  user-select: none;
-}
-
-select {
-  height: 3.875rem;
-}
-
-select[name="cardMonth"] {
-  margin-right: 1rem;
-}
-
-select[name="cardYear"] {
-  margin-right: 3rem;
 }
 .card_frontTopBox {
   display: flex;
@@ -144,7 +129,6 @@ select[name="cardYear"] {
   font-size: 1.125rem;
   text-transform: uppercase;
   font-weight: 500;
-  user-select: none;
 }
 
 .card_frontCardNumber {
@@ -155,7 +139,6 @@ select[name="cardYear"] {
   color: white;
   font-size: 1.6875rem;
   font-weight: 500;
-  user-select: none;
 }
 
 .blackStripe {
@@ -193,7 +176,6 @@ select[name="cardYear"] {
   color: white;
   font-size: 1rem;
   font-weight: 500;
-  user-select: none;
   margin-right: 0.625rem;
 }
 

@@ -145,6 +145,7 @@ function Form(props) {
             name="card-holder"
             autoComplete="cc-name"
             type="text"
+            spellcheck="false"
             aria-describedby="card-holder-error"
             value={props.cardHolderInput}
             onChange={(e) => props.setCardHolderInput(e.target.value)}

@@ -52,10 +52,12 @@ function Card(props) {
     props.expirationDateIsFocused,
     props.cardNumberIsFocused,
   ])
-
+  {
+    /*add hints and make the form more responsive */
+  }
   return (
     <>
-      <div className="card">
+      <div className="card" role="presentation">
         <div
           style={
             props.cvvIsFocused
