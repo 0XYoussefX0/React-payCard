@@ -42,8 +42,7 @@ function Form(props) {
       return checksum % 10 == 0
     }
     if (
-      !(props.cardNumberInput.length === 16) ||
-      !props.cardNumberInput.match(/^[0-9]*$/) ||
+      !props.cardNumberInput.match(/^\d{16}$/) ||
       !luhnCheck(props.cardNumberInput)
     ) {
       return false
@@ -106,12 +105,11 @@ function Form(props) {
         >
           <label htmlFor="card-number">Card Number</label>
           <div className="card-number-hint" id="card-number-hint">
-            Enter the 16-digit number without spaces or dashes, like
-            'XXXXXXXXXXXXXXXX'
+            Must be 16-digit number without spaces or dashes
           </div>
           {!isTheCardNumberValid && (
             <div className="error" role="alert" id="card-number-error">
-              Please enter a valid 16-digit credit card number
+              Enter a valid 16-digit credit card number
             </div>
           )}
           <input
@@ -121,7 +119,6 @@ function Form(props) {
             type="text"
             inputMode="numeric"
             autoComplete="cc-number"
-            maxLength="16"
             aria-describedby="card-number-hint card-number-error"
             value={props.cardNumberInput}
             onChange={(e) => props.setCardNumberInput(e.target.value)}
@@ -144,11 +141,11 @@ function Form(props) {
         >
           <label htmlFor="card-holder">Card Holder</label>
           <div className="card-holder-hint" id="card-holder-hint">
-            Enter the full name exactly as it appears on the card.
+            Must be the full name exactly as it appears on the card
           </div>
           {!isTheCardHolderValid && (
             <div className="error" role="alert" id="card-holder-error">
-              Please enter the name of the card holder.
+              Enter the name of the card holder
             </div>
           )}
           <input
@@ -180,11 +177,11 @@ function Form(props) {
         >
           <label htmlFor="expiration-date">Expiration Date</label>
           <div className="expiration-date-hint" id="expiration-date-hint">
-            Enter the expiration date in the format MM/YYYY.
+            Must be in the format MM/YYYY
           </div>
           {!isExpirationDateValid && (
             <div className="error" role="alert" id="expiration-date-error">
-              Please type an expiration date.
+              Enter an expiration date
             </div>
           )}
           <input
@@ -194,7 +191,6 @@ function Form(props) {
             type="text"
             inputMode="numeric"
             autoComplete="cc-exp"
-            maxLength="7"
             aria-describedby="expiration-date-hint expiration-date-error"
             value={props.expirationDate}
             onChange={(e) => props.setExpirationDate(e.target.value)}
@@ -212,12 +208,11 @@ function Form(props) {
         <div className={`inputGroup ${!isTheCvvValid ? "redLeftBorder" : ""} `}>
           <label htmlFor="cvv">CVV</label>
           <div className="cvv-hint" id="cvv-hint">
-            Enter the three or four-digit security code found on the back of
-            your card.
+            Must be three or four-digit
           </div>
           {!isTheCvvValid && (
             <div className="error" role="alert" id="cvv-error">
-              Please enter a 3-digit CVV number.
+              Enter a 3-digit or 4-digit CVV number
             </div>
           )}
           <input
@@ -227,8 +222,6 @@ function Form(props) {
             type="text"
             inputMode="numeric"
             autoComplete="cc-csc"
-            minLength="3"
-            maxLength="4"
             aria-describedby="cvv-hint cvv-error"
             value={props.cvvInput}
             onChange={(e) => props.setCvvInput(e.target.value)}

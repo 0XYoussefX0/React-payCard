@@ -1,33 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
-
 :root {
   background: #ddeefc;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
-}
-@media (max-width: 650px) {
-  :root {
-    font-size: 14px;
-  }
-  .form {
-    grid-template-areas:
-      "cardNumberLabel cardNumberLabel"
-      "cardNumber cardNumber"
-      "cardNumberError cardNumberError"
-      "cardHolderLabel cardHolderLabel"
-      "cardHolder cardHolder"
-      "cardHolderError cardHolderError"
-      "cardExpirationDate cardExpirationDate"
-      "cardMonth cardYear"
-      "expirationDate expirationDate"
-      "cardCvvLabel cardCvvLabel"
-      "cardCvv cardCvv"
-      "cardCvvError cardCvvError"
-      "submitButton submitButton";
-  }
-}
-@media (max-width: 420px) {
-  :root {
-    font-size: 11px;
-  }
 }
