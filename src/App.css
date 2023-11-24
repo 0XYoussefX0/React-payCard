@@ -12,7 +12,7 @@
 }
 
 input[type="submit"] {
-  font-size: 22px;
+  font-size: 1.375rem;
   color: white;
   background: #2364d2;
   border-radius: 5px;
@@ -51,7 +51,7 @@ input:not([type="submit"]) {
   border-radius: 5px;
   box-shadow: none;
   border: 1px solid #ced6e0;
-  font-size: 18px;
+  font-size: 1.125rem;
   padding: 19px 15px;
   background: none;
   color: #1a3b5d;
@@ -78,7 +78,7 @@ input:focus:not([type="submit"]) {
 .expiration-date-hint,
 .cvv-hint {
   font-family: "Source Code Pro", monospace;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #27598b;
 }
 label {
@@ -170,7 +170,7 @@ label {
   height: 3.125rem;
 }
 .whiteStripe > div {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .card_backMiddleBox {
   margin-right: 0.9375rem;
@@ -271,10 +271,6 @@ label {
     opacity: 1;
     transform: rotateZ(0) translateY(0);
   }
-}
-
-html {
-  font-size: 16px;
 }
 
 .emptySpace {
