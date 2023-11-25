@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react"
 
 function Card(props) {
   const defaultDimenions = {
-    height: 270,
-    width: 450,
+    height: 0,
+    width: 0,
     positionTop: 0,
     positionLeft: 0,
     opacity: 0,
@@ -52,9 +52,6 @@ function Card(props) {
     props.expirationDateIsFocused,
     props.cardNumberIsFocused,
   ])
-  {
-    /*add hints and make the form more responsive */
-  }
   return (
     <>
       <div className="card" role="presentation">
@@ -98,7 +95,7 @@ function Card(props) {
                       return (
                         <div
                           className={`animation ${
-                            index == 7 || index == 11 ? "padding-r16" : null
+                            index == 7 || index == 11 ? "padding" : null
                           }`}
                           key={index}
                         >
@@ -109,7 +106,7 @@ function Card(props) {
                       return (
                         <div
                           className={`animation ${
-                            index == 3 ? "padding-r16" : null
+                            index == 3 ? "padding" : null
                           }`}
                           key={index}
                         >
@@ -124,15 +121,15 @@ function Card(props) {
                   <div>#</div>
                   <div>#</div>
                   <div>#</div>
-                  <div className="padding-r16">#</div>
+                  <div className="padding">#</div>
                   <div>*</div>
                   <div>*</div>
                   <div>*</div>
-                  <div className="padding-r16">*</div>
+                  <div className="padding">*</div>
                   <div>*</div>
                   <div>*</div>
                   <div>*</div>
-                  <div className="padding-r16">*</div>
+                  <div className="padding">*</div>
                   <div>#</div>
                   <div>#</div>
                   <div>#</div>
