@@ -115,7 +115,7 @@ Project Link: [react-paycard.pages.dev](react-paycard.pages.dev)
 [Demo]: images/screenshot.png
 [Html]: https://img.shields.io/badge/HTML-000000?style=for-the-badge&logo=html5
 [Html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[Css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css3
+[Css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css3&logoColor=#1572B6
 [Css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Javascript]: https://img.shields.io/badge/JAVASCRIPT-000000?style=for-the-badge&logo=javascript
 [Javascript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
