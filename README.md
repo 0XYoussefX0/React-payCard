@@ -28,7 +28,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][Demo]](https://example.com)
 
 This React app implements an interactive paycard form that is responsive and can be used on both desktop and mobile devices. The form validates the input fields as the user fills them in, and displays error messages if any of the fields are invalid. The form also has a live preview that shows the card details as the user fills in the form.
 
@@ -114,15 +114,15 @@ Project Link: [react-paycard.pages.dev](react-paycard.pages.dev)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [Demo]: images/screenshot.png
-[Html]: https://img.shields.io/badge/HTML-000000?style=for-the-badge&logo=html&logoColor=black
+[Html]: https://img.shields.io/badge/HTML-000000?style=for-the-badge&logo=html
 [Html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[Css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css&logoColor=black
+[Css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css
 [Css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
-[Javascript]: https://img.shields.io/badge/JAVASCRIPT-000000?style=for-the-badge&logo=javascript&logoColor=black
+[Javascript]: https://img.shields.io/badge/JAVASCRIPT-000000?style=for-the-badge&logo=javascript
 [Javascript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
-[React]: https://img.shields.io/badge/REACT-000000?style=for-the-badge&logo=react&logoColor=black
+[React]: https://img.shields.io/badge/REACT-000000?style=for-the-badge&logo=react
 [React-url]: https://react.dev/
-[Git]: https://img.shields.io/badge/GIT-000000?style=for-the-badge&logo=git&logoColor=black
+[Git]: https://img.shields.io/badge/GIT-000000?style=for-the-badge&logo=git
 [Git-url]: https://git-scm.com/
-[Github]: https://img.shields.io/badge/GITHUB-000000?style=for-the-badge&logo=github&logoColor=black
+[Github]: https://img.shields.io/badge/GITHUB-000000?style=for-the-badge&logo=github
 [Github-url]: https://github.com/
