@@ -83,11 +83,10 @@ Development environment :
   npm run dev
   ```
 Production environment : 
-
-1.  ```sh
+ ```sh
    npm run build
    ```
-2. ```sh
+```sh
    npm start
    ```
 
@@ -114,9 +113,9 @@ Project Link: [react-paycard.pages.dev](react-paycard.pages.dev)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [Demo]: images/screenshot.png
-[Html]: https://img.shields.io/badge/HTML-000000?style=for-the-badge&logo=html
+[Html]: https://img.shields.io/badge/HTML-000000?style=for-the-badge&logo=html5
 [Html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[Css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css
+[Css]: https://img.shields.io/badge/CSS-000000?style=for-the-badge&logo=css3
 [Css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Javascript]: https://img.shields.io/badge/JAVASCRIPT-000000?style=for-the-badge&logo=javascript
 [Javascript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
