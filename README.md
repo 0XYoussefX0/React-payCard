@@ -95,8 +95,6 @@ Production environment :
 
 Youssef Abelouas - [Linkedin](https://www.linkedin.com/) - youssef.abelouass@gmail.com
 
-Project Link: [react-paycard.pages.dev](https://react-paycard.pages.dev/)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
